@@ -1,0 +1,60 @@
+---
+import {Image} from 'astro:assets'
+import {Icon} from 'astro-icon/components'
+
+interface Props {
+	class?: string
+	style?: string
+}
+
+const {class: className, style} = Astro.props
+---
+
+<div class="card-base p-6 mb-4">
+		<div data-name="hitokoto" class="mb-4">
+			<!-- 正文：居中，包裹『』 -->
+			<h2
+				data-name="sentence"
+				class="text-3xl font-extrabold leading-tight text-black/100 dark:text-white/100 m-0 text-center"
+				id="hitokoto_text"
+			>
+				获取中...
+			</h2>
+
+			<!-- 出处：右对齐，斜体 -->
+			<p
+				class="text-base text-gray-600 dark:text-gray-400 text-right italic mt-1"
+				id="hitokoto_from"
+			>
+				<!-- 出处内容 -->
+			</p>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	fetch('https://v1.hitokoto.cn?c=d&encode=json')
+		.then(response => response.json())
+		.then(data => {
+			const hitokotoText = document.querySelector('#hitokoto_text');
+			const hitokotoFrom = document.querySelector('#hitokoto_from');
+			if(hitokotoText) {
+				// 用『』包裹正文
+				hitokotoText.innerText = data.hitokoto ? `『${data.hitokoto}』` : ':( 无内容';
+			}
+			if(hitokotoFrom) {
+				hitokotoFrom.innerText = data.from ? `——${data.from}` : '';
+			}
+		})
+		.catch(err => {
+			console.error('获取一言失败', err);
+			const hitokotoText = document.querySelector('#hitokoto_text');
+			if(hitokotoText){
+				hitokotoText.innerText = '……';
+			}
+			const hitokotoFrom = document.querySelector('#hitokoto_from');
+			if(hitokotoFrom) {
+				hitokotoFrom.innerText = '';
+			}
+		})
+</script>
