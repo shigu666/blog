@@ -6,7 +6,7 @@
 
 
 <hr/>
-<a onclick="handleCardAction()" class="w-full font-bold overflow-hidden active:scale-95"> <div class="btn-card rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center gap-4"> 点我获取返图   </div> </a>
+<a onclick="handleCardAction()" class="w-full font-bold overflow-hidden active:scale-95"> <div class="btn-card rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center gap-4">点我获取返图</div> </a>
 
 
 <script src="/js/aniexpcard.js"></script>
