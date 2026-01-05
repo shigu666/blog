@@ -330,11 +330,15 @@ export const navBarConfig: NavBarConfig = {
 			url: "/about/",
 			icon: "material-symbols:person",
 		},
-		{
-			name: "Friends",
-			url: "/friends/",
-			icon: "material-symbols:group",
-		},
+
+		// 先临时禁用友链
+		// {
+		// 	name: "Friends",
+		// 	url: "/friends/",
+		// 	icon: "material-symbols:group",
+		// },
+
+
 		// 	],
 		// },
 		{
@@ -425,7 +429,7 @@ export const profileConfig: ProfileConfig = {
 };
 
 export const licenseConfig: LicenseConfig = {
-	enable: true,
+	enable: false,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
