@@ -112,7 +112,17 @@ export default defineConfig({
 		svelte({
 			preprocess: vitePreprocess(),
 		}),
-		sitemap(),
+		sitemap({
+			filter: (page) => {
+				// 排除特定路径
+				// if (page.includes("/secret-page/")) return false;
+				if (page.includes("/aniexp/")) return false;
+
+				// 或者根据 front-matter 属性排除（需要额外处理）
+				// 此处需要结合 build 时读取 frontmatter 的方式，较为复杂
+				return true;
+			},
+		}),
 	],
 	markdown: {
 		remarkPlugins: [
@@ -136,7 +146,8 @@ export default defineConfig({
 						github: GithubCardComponent,
 						note: (x, y) => AdmonitionComponent(x, y, "note"),
 						tip: (x, y) => AdmonitionComponent(x, y, "tip"),
-						important: (x, y) => AdmonitionComponent(x, y, "important"),
+						important: (x, y) =>
+							AdmonitionComponent(x, y, "important"),
 						caution: (x, y) => AdmonitionComponent(x, y, "caution"),
 						warning: (x, y) => AdmonitionComponent(x, y, "warning"),
 					},
