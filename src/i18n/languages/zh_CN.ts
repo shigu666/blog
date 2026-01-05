@@ -7,6 +7,7 @@ export const zh_CN: Translation = {
 	[Key.archive]: "归档",
 	[Key.search]: "搜索",
 	[Key.other]: "其他",
+	[Key.aniexp]: "漫展返图",
 
 	// 导航栏标题
 	[Key.navLinks]: "链接",
