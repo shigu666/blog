@@ -26,7 +26,7 @@ export const zh_CN: Translation = {
 	[Key.announcementClose]: "关闭",
 
 	[Key.comments]: "评论",
-	[Key.friends]: "友链",
+	[Key.friends]: "友情链接",
 	[Key.friendsSubtitle]: "发现更多优秀网站",
 	[Key.friendsSearchPlaceholder]: "搜索友链名称或描述...",
 	[Key.friendsFilterAll]: "全部",

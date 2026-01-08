@@ -121,14 +121,14 @@ export const siteConfig: SiteConfig = {
 		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
 
 		carousel: {
-			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
+			enable: false, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
 
 			interval: 1.5, // 轮播间隔时间（秒）
 		},
 
 		waves: {
 			enable: false, // 是否启用水波纹效果(这个功能比较吃性能)
-			performanceMode: false, // 性能模式：减少动画复杂度(性能提升40%)
+			performanceMode: true, // 性能模式：减少动画复杂度(性能提升40%)
 			mobileDisable: false, // 移动端禁用
 		},
 
@@ -337,36 +337,41 @@ export const navBarConfig: NavBarConfig = {
 			icon: "material-symbols:group",
 		},
 
+		{
+			name: "内容许可协议",
+			url: "/license/",
+			icon: "material-symbols:license",
+		},
 
 		// 	],
 		// },
-		{
-			name: "Others",
-			url: "#",
-			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "这里还是空哒",
-					url: "#",
-					icon: "material-symbols:logout",
-				},
-				// {
-				// 	name: "Projects",
-				// 	url: "/projects/",
-				// 	icon: "material-symbols:work",
-				// },
-				// {
-				// 	name: "Skills",
-				// 	url: "/skills/",
-				// 	icon: "material-symbols:psychology",
-				// },
-				// {
-				// 	name: "Timeline",
-				// 	url: "/timeline/",
-				// 	icon: "material-symbols:timeline",
-				// },
-			],
-		},
+		// {
+		// 	name: "Others",
+		// 	url: "#",
+		// 	icon: "material-symbols:more-horiz",
+		// 	children: [
+		// 		{
+		// 			name: "这里还是空哒",
+		// 			url: "#",
+		// 			icon: "material-symbols:logout",
+		// 		},
+		// 		// {
+		// 		// 	name: "Projects",
+		// 		// 	url: "/projects/",
+		// 		// 	icon: "material-symbols:work",
+		// 		// },
+		// 		// {
+		// 		// 	name: "Skills",
+		// 		// 	url: "/skills/",
+		// 		// 	icon: "material-symbols:psychology",
+		// 		// },
+		// 		// {
+		// 		// 	name: "Timeline",
+		// 		// 	url: "/timeline/",
+		// 		// 	icon: "material-symbols:timeline",
+		// 		// },
+		// 	],
+		// },
 	],
 };
 
@@ -428,8 +433,8 @@ export const profileConfig: ProfileConfig = {
 };
 
 export const licenseConfig: LicenseConfig = {
-	enable: false,
-	name: "SHIGU A-NC-SA 1.0",
+	enable: true,
+	name: "署名—非商业性使用—相同方式共享 可撤销可追溯许可协议（版本1.1）",
 	url: "https://blog.shigu.cc/license/",
 };
 
@@ -482,13 +487,13 @@ export const shareConfig: ShareConfig = {
 
 // 公告已关闭
 export const announcementConfig: AnnouncementConfig = {
-	title: "公告", // 公告标题
-	content: "欢迎来到我的博客", // 公告内容
-	closable: true, // 允许用户关闭公告
+	title: "内容许可协议", // 公告标题
+	content: "转载内容即代表您同意本站的内容许可协议，协议内容请点击下方详情查看", // 公告内容
+	closable: false, // 允许用户关闭公告
 	link: {
-		enable: false, // 启用链接
-		text: "Learn More", // 链接文本
-		url: "/about/", // 链接 URL
+		enable: true, // 启用链接
+		text: "查看详情", // 链接文本
+		url: "/license/", // 链接 URL
 		external: false, // 内部链接
 	},
 };
@@ -542,7 +547,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：公告组件
 			type: "announcement",
 			// 是否启用该组件（现在通过统一配置控制）
-			enable: false,
+			enable: true,
 			// 组件显示顺序
 			order: 2,
 			// 组件位置："top" 表示固定在顶部
