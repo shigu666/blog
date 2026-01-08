@@ -1,5 +1,5 @@
 # 内容许可声明  
-本博客项目为[matsuzaka-yuki/Mizuki](https://github.com/matsuzaka-yuki/Mizuki)项目，使用[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)协议，但是博客中的所有内容、文章等不在Apache协议下，遵守下面的协议    
+本博客项目为[matsuzaka-yuki/Mizuki](https://github.com/matsuzaka-yuki/Mizuki)项目，使用[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)协议，但是博客中的所有内容、文章等不在Apache协议下，引用的文章、图片等的版权、著作权等相关权利归原作者所有。通常情况下本站原创内容遵守下面的协议    
 本博客所有内容在没有额外声明时均遵守由我修改自[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)（[署名—非商业性使用—相同方式共享 4.0 协议国际版](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)）的[署名—非商业性使用—相同方式共享 可撤销可追溯许可协议（版本1.1）](#署名非商业性使用相同方式共享-可撤销可追溯许可协议版本11)  
 本协议为默许协议，当您转载内容时即视为同意本协议并已取得非商业使用相关授权  
 
