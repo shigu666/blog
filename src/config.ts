@@ -331,12 +331,11 @@ export const navBarConfig: NavBarConfig = {
 			icon: "material-symbols:person",
 		},
 
-		// 先临时禁用友链
-		// {
-		// 	name: "Friends",
-		// 	url: "/friends/",
-		// 	icon: "material-symbols:group",
-		// },
+		{
+			name: "Friends",
+			url: "/friends/",
+			icon: "material-symbols:group",
+		},
 
 
 		// 	],
@@ -430,8 +429,8 @@ export const profileConfig: ProfileConfig = {
 
 export const licenseConfig: LicenseConfig = {
 	enable: false,
-	name: "CC BY-NC-SA 4.0",
-	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+	name: "SHIGU A-NC-SA 1.0",
+	url: "https://blog.shigu.cc/license/",
 };
 
 // Permalink 固定链接配置
