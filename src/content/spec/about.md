@@ -8,8 +8,8 @@
 
 ## 我
 nick : 时孤  
-avatar : https://blog-new.shigu.cc/images/avatar.png  
-site : https://blog.shigu.cc  
+avatar : `https://blog.shigu.cc/images/avatar.png`  
+site : `https://blog.shigu.cc`  
 
 ## 友链留言信息 
 ID/昵称/CN：`string`  

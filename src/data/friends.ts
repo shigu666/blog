@@ -15,7 +15,7 @@ export const friendsData: FriendItem[] = [
 	// {
 	// 	id: 1,
 	// 	title: "本人",
-	// 	imgurl: "https://blog-new.shigu.cc/images/avatar.png",
+	// 	imgurl: "https://blog.shigu.cc/images/avatar.png",
 	// 	desc: "这是我的博客",
 	// 	siteurl: "https://blog.shigu.cc",
 	// 	tags: ["本人"],
