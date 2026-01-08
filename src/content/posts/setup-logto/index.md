@@ -127,7 +127,8 @@ npm init @logto@latest -- -p /root/logto --download-url=https://gh-proxy.org/htt
 logto connector add --official #不建议运行，见说明
 ```
 
-**注**:实际官方连接器已存在，此步骤应跳过，但是在官方文档中出现了，若执行本命令，将会导致不兼容的模块被引入（该模块需求更低版本的nodejs），应当执行链接本地连接器的命令
+> [!WARNING] 
+> 实际官方连接器已存在，此步骤应跳过，但是在官方文档中出现了，若执行本命令，将会导致不兼容的模块被引入（该模块需求更低版本的nodejs），应当执行链接本地连接器的命令
 
 ## 将本地连接器链接到logto
 
