@@ -148,7 +148,7 @@ export function setTheme(theme: LIGHT_DARK_MODE): void {
 }
 
 export function getStoredTheme(): LIGHT_DARK_MODE {
-	return (localStorage.getItem("theme") as LIGHT_DARK_MODE) || DEFAULT_THEME;
+	return (localStorage.getItem("theme") as LIGHT_DARK_MODE) || computeDefaultTheme();
 }
 
 export function getStoredWallpaperMode(): WALLPAPER_MODE {
@@ -164,4 +164,20 @@ export function setWallpaperMode(mode: WALLPAPER_MODE): void {
 	window.dispatchEvent(
 		new CustomEvent("wallpaper-mode-change", { detail: { mode } }),
 	);
+}
+
+/**
+ * 获取浏览器深色偏好
+ * @return 浏览器偏好是否为深色模式
+ */
+export function getIfBrowserDarkMode(): boolean {
+	return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ?? false
+}
+
+/**
+ * 获取默认主题
+ * 当浏览器为偏好是深色模式时,返回深色模式,否则返回默认主题常量
+ */
+export function computeDefaultTheme(): LIGHT_DARK_MODE {
+	return getIfBrowserDarkMode() ? DARK_MODE : DEFAULT_THEME;
 }
