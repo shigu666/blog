@@ -15,6 +15,7 @@ const BANNER_HEIGHT_EXTEND = 30;
 const BANNER_HEIGHT_HOME = BANNER_HEIGHT + BANNER_HEIGHT_EXTEND;
 
 import {
+	AUTO_MODE,
 	DARK_MODE,
 	DEFAULT_THEME,
 	LIGHT_MODE,
@@ -268,6 +269,7 @@ if (siteConfig.font) {
 		<script
 			is:inline
 			define:vars={{
+				AUTO_MODE,
 				DEFAULT_THEME,
 				LIGHT_MODE,
 				DARK_MODE,
@@ -276,34 +278,21 @@ if (siteConfig.font) {
 				configHue,
 			}}
 		>
-			// Detect if browser in dark mode
-			const browserDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-
 			// Load the theme from local storage
-			const theme = localStorage.getItem("theme") || (browserDarkMode ? DARK_MODE : DEFAULT_THEME);
-
-			let isDark = false;
+			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
 			switch (theme) {
 				case LIGHT_MODE:
-					document.documentElement.classList.remove("dark");
-					isDark = false;
-					break;
+					document.documentElement.classList.remove('dark');
+					break
 				case DARK_MODE:
-					document.documentElement.classList.add("dark");
-					isDark = true;
-					break;
-			}
-
-			// Set the theme for Expressive Code based on current mode
-			const expressiveTheme = isDark ? "github-dark" : "github-light";
-			const currentTheme =
-				document.documentElement.getAttribute("data-theme");
-			// 只在主题不同时才更新，避免触发不必要的重绘
-			if (currentTheme !== expressiveTheme) {
-				document.documentElement.setAttribute(
-					"data-theme",
-					expressiveTheme,
-				);
+					document.documentElement.classList.add('dark');
+					break
+				case AUTO_MODE:
+					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						document.documentElement.classList.add('dark');
+					} else {
+						document.documentElement.classList.remove('dark');
+					}
 			}
 
 			// Load the hue from local storage
@@ -1122,38 +1111,6 @@ function disableAnimation() {
 				top: 0,
 				behavior: "instant",
 			});
-
-			// 同步主题状态 - 解决从首页进入文章页面时代码块渲染问题
-			const storedTheme = localStorage.getItem("theme") || DEFAULT_THEME;
-			const isDark = storedTheme === DARK_MODE;
-			const expectedTheme = isDark ? "github-dark" : "github-light";
-
-			const currentTheme =
-				document.documentElement.getAttribute("data-theme");
-			const hasDarkClass =
-				document.documentElement.classList.contains("dark");
-
-			// 如果主题不匹配，使用批量更新减少重绘
-			if (currentTheme !== expectedTheme || hasDarkClass !== isDark) {
-				// 使用 requestAnimationFrame 批量更新，减少重绘
-				requestAnimationFrame(() => {
-					// 同步 data-theme 属性
-					if (currentTheme !== expectedTheme) {
-						document.documentElement.setAttribute(
-							"data-theme",
-							expectedTheme,
-						);
-					}
-					// 同步 dark class
-					if (hasDarkClass !== isDark) {
-						if (isDark) {
-							document.documentElement.classList.add("dark");
-						} else {
-							document.documentElement.classList.remove("dark");
-						}
-					}
-				});
-			}
 
 			// 检查当前页面是否为文章页面，如果是则触发自定义事件用于初始化评论系统
 			setTimeout(() => {
