@@ -276,8 +276,12 @@ if (siteConfig.font) {
 				configHue,
 			}}
 		>
+			// Detect if browser in dark mode
+			const browserDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+
 			// Load the theme from local storage
-			const theme = localStorage.getItem("theme") || DEFAULT_THEME;
+			const theme = localStorage.getItem("theme") || (browserDarkMode ? DARK_MODE : DEFAULT_THEME);
+
 			let isDark = false;
 			switch (theme) {
 				case LIGHT_MODE:
