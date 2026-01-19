@@ -489,7 +489,7 @@ export const shareConfig: ShareConfig = {
 export const announcementConfig: AnnouncementConfig = {
 	title: "内容许可协议", // 公告标题
 	content: "转载内容即代表您同意本站的内容许可协议，协议内容请点击下方详情查看", // 公告内容
-	closable: false, // 允许用户关闭公告
+	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
 		text: "查看详情", // 链接文本
