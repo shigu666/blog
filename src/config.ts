@@ -231,8 +231,8 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	// 	], // 移动横幅图片
 	// }, // 使用本地横幅图片
 	src: {
-		desktop: ["assets/images/banner.jpg"], // 桌面横幅图片
-		mobile: ["assets/images/banner.jpg"], // 移动横幅图片
+		desktop: ["/images/banner.jpg"], // 桌面横幅图片
+		mobile: ["/images/banner.jpg"], // 移动横幅图片
 	}, // 使用本地横幅图片
 	position: "center", // 壁纸位置，等同于 object-position
 	carousel: {
