@@ -78,8 +78,10 @@ export type SiteConfig = {
 
 	// 顶栏标题配置
 	navbarTitle?: {
+		mode?: "text-icon" | "logo"; // 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
 		text: string; // 顶栏标题文本
 		icon?: string; // 顶栏标题图标路径
+		logo?: string; // 网站Logo图片路径
 	};
 
 	// 添加字体配置
@@ -187,7 +189,7 @@ export enum LinkPreset {
 	Friends = 3,
 	Anime = 4,
 	Diary = 5,
-	Gallery = 6,
+	Albums = 6,
 	Projects = 7,
 	Skills = 8,
 	Timeline = 9,
@@ -450,3 +452,4 @@ export type PioConfig = {
 export type ShareConfig = {
 	enable: boolean; // 是否启用分享功能
 };
+
