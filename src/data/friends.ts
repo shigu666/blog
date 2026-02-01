@@ -12,14 +12,14 @@ export interface FriendItem {
 
 // 友情链接数据
 export const friendsData: FriendItem[] = [
-	// {
-	// 	id: 1,
-	// 	title: "本人",
-	// 	imgurl: "https://blog.shigu.cc/images/avatar.png",
-	// 	desc: "这是我的博客",
-	// 	siteurl: "https://blog.shigu.cc",
-	// 	tags: ["本人"],
-	// },
+	{
+		id: 1,
+		title: "Mojade@破站",
+		imgurl: "https://data.chahuyun.cn/config/a520573c8f012816539af41fbd8ecc65.jpg",
+		desc: "放空每一天~",
+		siteurl: "https://chahuyun.cn",
+		tags: ["博客","好友"],
+	},
 
 	// {
 	// 	id: 1,
