@@ -7,14 +7,16 @@
 # 关于友链  
 
 ## 我
-nick : 时孤  
-avatar : `https://blog.shigu.cc/images/avatar.png`  
-site : `https://blog.shigu.cc`  
+ID : `时孤`
+头像 : `https://blog.shigu.cc/images/avatar.png`
+URL : `https://blog.shigu.cc`
+描述：`兴趣使然的工科生`
 
 ## 友链留言信息 
-ID/昵称/CN：`string`  
-头像：`URL`  
-主页：`URL`  
+ID : `string`
+头像 : `URL`
+URL : `URL`
+描述：`string`
 
 ---
 
