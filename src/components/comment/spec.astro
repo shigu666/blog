@@ -1,0 +1,19 @@
+---
+import { commentConfig } from "@/config";
+import Twikoo from "./Twikoo.astro";
+
+interface Props {
+	path?: string;
+}
+
+const { path: propPath } = Astro.props;
+const finalPath = propPath || Astro.url.pathname.replace(/\/$/, '') || 'home';
+---
+
+{commentConfig?.enable && commentConfig?.twikoo && (
+<br/>
+<hr>
+<div class="card-base p-6 mb-4">
+	<Twikoo path={finalPath} />
+</div>
+	)}
