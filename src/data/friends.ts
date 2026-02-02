@@ -18,7 +18,15 @@ export const friendsData: FriendItem[] = [
 		imgurl: "https://data.chahuyun.cn/config/a520573c8f012816539af41fbd8ecc65.jpg",
 		desc: "放空每一天~",
 		siteurl: "https://chahuyun.cn",
-		tags: ["博客","好友"],
+		tags: ["博客", "好友"],
+	},
+	{
+		id: 2,
+		title: "戏唱故梦の博客",
+		imgurl: "https://xcgm.life/logo.jpg",
+		desc: "",
+		siteurl: "https://xcgm.life",
+		tags: ["博客", "好友"],
 	},
 
 	// {
