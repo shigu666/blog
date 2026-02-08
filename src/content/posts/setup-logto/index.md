@@ -15,15 +15,11 @@ draft: false
 
 ## 目录
 
-[1. 环境准备](#环境准备)
-
-[2. 安装logto](#安装logto)
-
-[3. 配置反代或CDN](#配置反代或CDN)
-
-[4. 配置systemd](#配置systemd)
-
-[5. 更新版本](#更新版本)
+[1. 环境准备](#环境准备)  
+[2. 安装logto](#安装logto)  
+[3. 配置反代或CDN](#配置反代或CDN)  
+[4. 配置systemd](#配置systemd)  
+[5. 更新版本](#更新版本)  
 
 ---
 
@@ -74,7 +70,7 @@ psql #进入psql的命令行
 CREATE DATABASE logto; #创建logto数据库
 ```
 
-改PostgreSQL的配置文件`/etc/postgresql/<你的psql版本，如17>/main/postgresql.conf`，第 60 行取消注释，允许本地登入数据库。
+修改PostgreSQL的配置文件`/etc/postgresql/<你的psql版本，如17>/main/postgresql.conf`，第 60 行取消注释，允许本地登入数据库。
 
 ```postgresql.conf
 listen_addresses = 'localhost'          # what IP address(es) to listen on;
