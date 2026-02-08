@@ -119,7 +119,7 @@ conversion failed: "2025-07-28 10:51:29.979933884 +0000 UTC m=+27.711477005" to 
 ### 使用bash命令处理  
 （Windows需要使用git bash）  
 ```bash
-find . -maxdepth 1 -type f -name "*.csv" -exec sed -E -i 's/[0-9]{3} \+0000 UTC m=[+-]?[0-9]*\.[0-9]{9}/ +00:00/g' {} \;
+find . -maxdepth 1 -type f -name "*.csv" -exec sed -E -i 's/[0-9]{3} \+0000 UTC m=\+[0-9]*\.[0-9]{9}/ +00:00/g' {} \;
 ```
 
 ## 重新导入  
