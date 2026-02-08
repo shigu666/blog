@@ -74,7 +74,7 @@ psql #进入psql的命令行
 CREATE DATABASE logto; #创建logto数据库
 ```
 
-修改 /etc/postgresql/<你的psql版本，如17>/main/postgresql.conf 文件第 60 行取消注释，允许本地登入数据库。
+改PostgreSQL的配置文件`/etc/postgresql/<你的psql版本，如17>/main/postgresql.conf`，第 60 行取消注释，允许本地登入数据库。
 
 ```postgresql.conf
 listen_addresses = 'localhost'          # what IP address(es) to listen on;
