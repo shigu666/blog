@@ -62,7 +62,7 @@ export const siteConfig: SiteConfig = {
 
 	// 页面自动缩放配置
 	pageScaling: {
-		enable: true, // 是否开启自动缩放
+		enable: false, // 是否开启自动缩放
 		targetWidth: 2000, // 目标宽度，低于此宽度时开始缩放
 	},
 
@@ -281,13 +281,13 @@ export const navBarConfig: NavBarConfig = {
 				// 	name: "GitHub",
 				// 	url: "https://github.com/matsuzaka-yuki/Mizuki",
 				// 	external: true,
-				// 	icon: "fa6-brands:github",
+				// 	icon: "fa7-brands:github",
 				// },
 				// {
 				// 	name: "Bilibili",
 				// 	url: "https://space.bilibili.com/701864046",
 				// 	external: true,
-				// 	icon: "fa6-brands:bilibili",
+				// 	icon: "fa7-brands:bilibili",
 				// },
 				// {
 				// 	name: "Gitee",
@@ -297,19 +297,19 @@ export const navBarConfig: NavBarConfig = {
 				// },
 				{
 					name: "Steam",
-					icon: "fa6-brands:steam",
+					icon: "fa7-brands:steam",
 					url: "https://steamcommunity.com/id/shigu666/",
 					external: true,
 				},
 				{
 					name: "GitHub",
-					icon: "fa6-brands:github",
+					icon: "fa7-brands:github",
 					url: "https://github.com/shigu666",
 					external: true,
 				},
 				{
 					name: "哔哩哔哩",
-					icon: "fa6-brands:bilibili",
+					icon: "fa7-brands:bilibili",
 					url: "https://space.bilibili.com/1683333823",
 					external: true,
 				},
@@ -409,7 +409,7 @@ export const profileConfig: ProfileConfig = {
 	links: [
 		// {
 		// 	name: "Bilibli",
-		// 	icon: "fa6-brands:bilibili",
+		// 	icon: "fa7-brands:bilibili",
 		// 	url: "https://space.bilibili.com/701864046",
 		// },
 		// {
@@ -419,7 +419,7 @@ export const profileConfig: ProfileConfig = {
 		// },
 		// {
 		// 	name: "GitHub",
-		// 	icon: "fa6-brands:github",
+		// 	icon: "fa7-brands:github",
 		// 	url: "https://github.com/matsuzaka-yuki",
 		// },
 		// {
@@ -429,27 +429,27 @@ export const profileConfig: ProfileConfig = {
 		// },
 		// {
 		// 	name: "Discord",
-		// 	icon: "fa6-brands:discord",
+		// 	icon: "fa7-brands:discord",
 		// 	url: "https://discord.gg/MqW6TcQtVM",
 		// },
 		{
 			name: "Steam",
-			icon: "fa6-brands:steam",
+			icon: "fa7-brands:steam",
 			url: "https://steamcommunity.com/id/shigu666/",
 		},
 		{
 			name: "GitHub",
-			icon: "fa6-brands:github",
+			icon: "fa7-brands:github",
 			url: "https://github.com/shigu666",
 		},
 		{
 			name: "QQ",
-			icon: "fa6-brands:qq",
+			icon: "fa7-brands:qq",
 			url: "https://qm.qq.com/q/DqCWkmyAg0",
 		},
 		{
 			name: "哔哩哔哩",
-			icon: "fa6-brands:bilibili",
+			icon: "fa7-brands:bilibili",
 			url: "https://space.bilibili.com/1683333823",
 		},
 	],
