@@ -33,6 +33,10 @@ let showPlaylist = false;
 let currentTime = 0;
 // 歌曲总时长，默认为 0
 let duration = 0;
+
+// localStorage 存储音量
+const STORAGE_KEY_VOLUME = 'music-player-volume';
+
 // 音量，默认为 0.7
 let volume = 0.7;
 // 是否静音，默认为 false
@@ -98,6 +102,30 @@ const localPlaylist = [
 		duration: 200,
 	},
 ];
+
+// 从localStorage加载音量设置
+function loadVolumeSettings() {
+	try {
+		if (typeof localStorage !== 'undefined') {
+			const savedVolume = localStorage.getItem(STORAGE_KEY_VOLUME);
+			if (savedVolume !== null && !isNaN(parseFloat(savedVolume))) {
+				volume = parseFloat(savedVolume);
+			}
+		}
+	} catch (e) {
+		console.warn('Failed to load volume settings from localStorage:', e);
+	}
+}
+// 保存音量设置到localStorage
+function saveVolumeSettings() {
+	try {
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem(STORAGE_KEY_VOLUME, volume.toString());
+		}
+	} catch (e) {
+		console.warn('Failed to save volume settings to localStorage:', e);
+	}
+}
 
 async function fetchMetingPlaylist() {
 	if (!meting_api || !meting_id) return;
@@ -354,6 +382,7 @@ function stopVolumeDrag(event: PointerEvent) {
         cancelAnimationFrame(rafId);
         rafId = null;
 	}
+    saveVolumeSettings();
 }
 
 function updateVolumeLogic(clientX: number) {
@@ -380,6 +409,7 @@ function formatTime(seconds: number): string {
 
 const interactionEvents = ['click', 'keydown', 'touchstart'];
 onMount(() => {
+    loadVolumeSettings(); 
     interactionEvents.forEach(event => {
         document.addEventListener(event, handleUserInteraction, { capture: true });
     });
@@ -678,7 +708,7 @@ onDestroy(() => {
                     <Icon icon="material-symbols:close" class="text-lg" />
                 </button>
             </div>
-            <div class="playlist-content overflow-y-auto max-h-80">
+            <div class="playlist-content overflow-y-auto max-h-80 hide-scrollbar">
                 {#each playlist as song, index}
                     <div class="playlist-item flex items-center gap-3 p-3 hover:bg-[var(--btn-plain-bg-hover)] cursor-pointer transition-colors"
                          class:bg-[var(--btn-plain-bg)]={index === currentIndex}
@@ -729,7 +759,7 @@ onDestroy(() => {
 .orb-player::before {
 	content: '';
 	position: absolute;
-	inset: -2px;
+	inset: -0.125rem;
 	background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
 	border-radius: 50%;
 	z-index: -1;
@@ -752,22 +782,22 @@ onDestroy(() => {
 	50% { transform: scaleY(1); }
 }
 .music-player.hidden-mode {
-	width: 48px;
-	height: 48px;
+	width: 3rem;
+	height: 3rem;
 }
 .music-player {
-    max-width: 320px;
+    max-width: 20rem;
     user-select: none;
 }
 .mini-player {
-    width: 280px;
+    width: 17.5rem;
     position: absolute;
     bottom: 0;
-	right: 0;
+    right: 0;
     /*left: 0;*/
 }
 .expanded-player {
-    width: 320px;
+    width: 20rem;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -791,21 +821,24 @@ onDestroy(() => {
 }
 @media (max-width: 768px) {
     .music-player {
-        max-width: 280px;
-        /*left: 8px !important;*/
-        bottom: 8px !important;
-        right: 8px !important;
+        max-width: 280px !important;
+        /*left: 0.5rem !important;*/
+        bottom: 0.5rem !important;
+        right: 0.5rem !important;
 	}
+    .mini-player {
+        width: 280px;
+    }
     .music-player.expanded {
         width: calc(100vw - 16px);
         max-width: none;
-        /*left: 8px !important;*/
-        right: 8px !important;
+        /*left: 0.5rem !important;*/
+        right: 0.5rem !important;
 	}
     .playlist-panel {
         width: calc(100vw - 16px) !important;
-        /*left: 8px !important;*/
-        right: 8px !important;
+        /*left: 0.5rem !important;*/
+        right: 0.5rem !important;
         max-width: none;
 	}
     .controls {
