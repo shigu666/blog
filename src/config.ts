@@ -523,7 +523,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	enable: false, // 启用音乐播放器功能
 	mode: "meting", // 音乐播放器模式，可选 "local" 或 "meting"
 	meting_api:
-		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
+		"https://meting.mysqil.com/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
 	id: "14164869977", // 歌单ID
 	server: "netease", // 音乐源服务器。有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
 	type: "playlist", // 播单类型
@@ -712,15 +712,8 @@ export const widgetConfigs = {
 	layout: sidebarLayoutConfig,
 	sakura: sakuraConfig,
 	fullscreenWallpaper: fullscreenWallpaperConfig,
-	pio: pioConfig, // 添加 pio 配置
-	share: shareConfig, // 添加分享配置
+	pio: pioConfig,
+	share: shareConfig,
 } as const;
 
-export const umamiConfig = {
-	enabled: false, // 是否显示Umami统计
-	apiKey: import.meta.env.UMAMI_API_KEY || "api_xxxxxxxx", // API密钥优先从环境变量读取，否则使用配置文件中的值
-	baseUrl: "https://api.umami.is", // Umami Cloud API地址
-	scripts: `
-<!--<script defer src="XXXX.XXX" data-website-id="ABCD1234"></script>-->
-  `.trim(), // 上面填你要插入的Script,不用再去Layout中插入
-} as const;
+// umamiConfig相关配置已移动至astro.config.mjs中,统计脚本请自行在Layout.astro文件的<head>中插入
