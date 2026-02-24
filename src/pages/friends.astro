@@ -7,6 +7,7 @@ import { getShuffledFriendsList } from "../data/friends";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
+import Comment from "@components/comment/spec.astro";
 
 // 检查友链页面是否启用
 if (!siteConfig.featurePages.friends) {
@@ -195,6 +196,8 @@ const allTags = Array.from(new Set(friendsList.flatMap((item) => item.tags)));
 					</div>
 				))}
 			</div>
+			<!--引入评论-->
+			<Comment />
 
 			<!-- 无结果提示 -->
 			<div id="no-results" class="hidden text-center py-12">
