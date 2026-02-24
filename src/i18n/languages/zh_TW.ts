@@ -7,7 +7,7 @@ export const zh_TW: Translation = {
 	[Key.archive]: "歸檔",
 	[Key.search]: "搜尋",
 	[Key.other]: "其他",
-	[Key.aniexp]: "",
+	[Key.aniexp]: "漫展返圖",
 
 	// 導航欄標題
 	[Key.navLinks]: "連結",

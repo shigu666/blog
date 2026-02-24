@@ -7,7 +7,7 @@ export const en: Translation = {
 	[Key.archive]: "Archive",
 	[Key.search]: "Search",
 	[Key.other]: "Other",
-	[Key.aniexp]: "",
+	[Key.aniexp]: "Convention photos return",
 
 	// Navigation bar titles
 	[Key.navLinks]: "Links",
