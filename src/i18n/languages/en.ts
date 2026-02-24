@@ -7,6 +7,7 @@ export const en: Translation = {
 	[Key.archive]: "Archive",
 	[Key.search]: "Search",
 	[Key.other]: "Other",
+	[Key.aniexp]: "",
 
 	// Navigation bar titles
 	[Key.navLinks]: "Links",

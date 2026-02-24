@@ -7,6 +7,7 @@ export const ja: Translation = {
 	[Key.archive]: "アーカイブ",
 	[Key.search]: "検索",
 	[Key.other]: "その他",
+	[Key.aniexp]: "",
 
 	// ナビゲーションバータイトル
 	[Key.navLinks]: "リンク",
