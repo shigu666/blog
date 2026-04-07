@@ -28,6 +28,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://xcgm.life",
 		tags: ["博客", "好友"],
 	},
+	{
+		id: 3,
+		title: "萝卜",
+		imgurl: "https://q.qlogo.cn/headimg_dl?dst_uin=2678615579&spec=640&img_type=jpg",
+		desc: "写点自己喜欢的",
+		siteurl: "https://blog.yanx.us",
+		tags: ["博客", "好友"],
+	},
 
 	// {
 	// 	id: 1,
