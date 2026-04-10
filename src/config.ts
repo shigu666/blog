@@ -1,4 +1,4 @@
-import type {
+﻿import type {
 	AnnouncementConfig,
 	CommentConfig,
 	ExpressiveCodeConfig,
@@ -9,6 +9,8 @@ import type {
 	NavBarConfig,
 	PermalinkConfig,
 	ProfileConfig,
+	RandomPostsConfig,
+	RelatedPostsConfig,
 	SakuraConfig,
 	ShareConfig,
 	SidebarLayoutConfig,
@@ -57,7 +59,7 @@ export const siteConfig: SiteConfig = {
 		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
 		icon: "assets/home/home.png",
 		// 网站Logo图片路径
-		logo: "assets/home/default-logo.png",
+		logo: "assets/home/default-logo.webp",
 	},
 
 	// 页面自动缩放配置
@@ -95,6 +97,10 @@ export const siteConfig: SiteConfig = {
 		defaultMode: "list",
 		// 是否允许用户切换布局
 		allowSwitch: true,
+		// 文章列表页分类导航条配置
+		categoryBar: {
+			enable: true, // 是否在文章列表页显示分类导航条
+		},
 	},
 
 	// 标签样式配置
@@ -196,8 +202,10 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	toc: {
-		enable: true, // 启用目录功能
-		mode: "sidebar", // 目录显示模式："float" 悬浮按钮模式，"sidebar" 侧边栏模式
+		enable: true, // 总开关，启用目录功能
+		mobileTop: true, // 手机端顶部 TOC 按钮
+		desktopSidebar: true, // 电脑端右侧边栏 TOC
+		floating: true, // 悬浮 TOC 按钮
 		depth: 2, // 目录深度，1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
 		useJapaneseBadge: false, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
 	},
@@ -232,7 +240,17 @@ export const siteConfig: SiteConfig = {
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
 	},
-	showLastModified: false, // 控制“上次编辑”卡片显示的开关
+	showLastModified: false, // 控制"上次编辑"卡片显示的开关
+	pageProgressBar: {
+		enable: true, // 启用页面顶部进度条
+		height: 3, // 进度条高度 3px
+		duration: 6000, // 动画时长 6s
+	},
+
+	thirdPartyAnalytics: {
+		enable: false, // 是否启用第三方统计（Microsoft Clarity），默认关闭，启用可能影响 Lighthouse 评分
+		clarityId: "", // Clarity 项目 ID
+	},
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	// src: {
@@ -474,15 +492,17 @@ export const permalinkConfig: PermalinkConfig = {
 	 * - %minute% : 2位分钟 (00-59)
 	 * - %second% : 2位秒数 (00-59)
 	 * - %post_id% : 文章序号（按发布时间升序排列，最早的文章为1）
-	 * - %postname% : 文章文件名（slug）
+	 * - %postname% : 文章文件名（slug，通常为全小写）
+	 * - %raw_postname% : 文章原始文件名（保留大小写）
 	 * - %category% : 分类名（无分类时为 "uncategorized"）
 	 *
 	 * 示例：
 	 * - "%year%-%monthnum%-%postname%" => "/2024-12-my-post/"
 	 * - "%post_id%-%postname%" => "/42-my-post/"
 	 * - "%category%-%postname%" => "/tech-my-post/"
+	 * - "%year%/%monthnum%/%day%/%postname%" => "/2024/12/01/my-post/"
 	 *
-	 * 注意：不支持斜杠 "/"，所有生成的链接都在根目录下
+	 * 注意：支持使用斜杠 "/" 构建嵌套路径。
 	 */
 	format: "%postname%", // 默认使用文件名
 };
@@ -496,10 +516,25 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 };
 
 export const commentConfig: CommentConfig = {
-	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	enable: false, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	system: "twikoo", // 评论系统选择: "twikoo" | "giscus"
 	twikoo: {
 		envId: "https://twikoo.shigu.cc",
 		lang: SITE_LANG,
+	},
+	giscus: {
+		repo: "your-github-username/your-repo-name",
+		repoId: "your-repo-id",
+		category: "Announcements",
+		categoryId: "your-category-id",
+		mapping: "pathname",
+		strict: "0",
+		reactionsEnabled: "1",
+		emitMetadata: "0",
+		inputPosition: "top",
+		theme: "preferred_color_scheme",
+		lang: SITE_LANG,
+		loading: "lazy",
 	},
 };
 
@@ -521,7 +556,9 @@ export const announcementConfig: AnnouncementConfig = {
 
 export const musicPlayerConfig: MusicPlayerConfig = {
 	enable: false, // 启用音乐播放器功能
-	mode: "meting", // 音乐播放器模式，可选 "local" 或 "meting"
+	showFloatingPlayer: false, // 显示悬浮播放器 UI
+	floatingEntryMode: "fab", // 悬浮入口模式："default" 为独立悬浮播放器，"fab" 为集成到通用 FAB 组
+	mode: "local", // 音乐播放器模式，可选 "local" 或 "meting"
 	meting_api:
 		"https://meting.mysqil.com/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
 	id: "14164869977", // 歌单ID
@@ -566,6 +603,13 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			animationDelay: 50,
 		},
 		{
+			// 组件类型：侧栏音乐组件
+			type: "music-sidebar",
+			position: "sticky",
+			class: "onload-animation",
+			animationDelay: 100,
+		},
+		{
 			// 组件类型：分类组件
 			type: "categories",
 			// 组件位置："sticky" 表示粘性定位，可滚动
@@ -596,6 +640,16 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			},
 		},
 		{
+			// 组件类型：卡片式目录组件
+			type: "card-toc",
+			// 组件位置
+			position: "sticky",
+			// CSS 类名
+			class: "onload-animation",
+			// 动画延迟时间
+			animationDelay: 200,
+		},
+		{
 			// 组件类型：站点统计组件
 			type: "site-stats",
 			// 组件位置
@@ -619,10 +673,16 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 	// 侧栏组件布局配置
 	// components: {
-	// 	left: ["profile", "announcement", "categories", "tags"],
-	// 	right: ["site-stats", "calendar"],
-	// 	drawer: ["profile", "announcement", "categories", "tags"],
-	// },
+	// 	left: ["profile", "announcement", "tags", "card-toc"],
+	// 	right: ["site-stats", "calendar", "categories", "music-sidebar"],
+	// 	drawer: [
+	// 		"profile",
+	// 		"announcement",
+	// 		"music-sidebar",
+	// 		"categories",
+	// 		"tags",
+	// 	],
+	// 	},
 	components: {
 		left: ["profile", "announcement", "categories", "tags"],
 		right: [],
@@ -700,8 +760,20 @@ export const pioConfig: import("./types/config").PioConfig = {
 		home: "Click here to go back to homepage!", // 首页提示
 		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
 		close: "QWQ See you next time~", // 关闭提示
-		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
+		link: "https://github.com/LyraVoid/Mizuki", // 关于链接
 	},
+};
+
+// 相关文章配置
+export const relatedPostsConfig: RelatedPostsConfig = {
+	enable: true,
+	maxCount: 5,
+};
+
+// 随机文章配置
+export const randomPostsConfig: RandomPostsConfig = {
+	enable: true,
+	maxCount: 5,
 };
 
 // 导出所有配置的统一接口
@@ -714,6 +786,8 @@ export const widgetConfigs = {
 	fullscreenWallpaper: fullscreenWallpaperConfig,
 	pio: pioConfig,
 	share: shareConfig,
+	relatedPosts: relatedPostsConfig,
+	randomPosts: randomPostsConfig,
 } as const;
 
 // umamiConfig相关配置已移动至astro.config.mjs中,统计脚本请自行在Layout.astro文件的<head>中插入
