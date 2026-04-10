@@ -1,54 +1,59 @@
 <script lang="ts">
-	import { DARK_MODE, DEFAULT_THEME, LIGHT_MODE } from "@constants/constants";
+	import { DARK_MODE, DEFAULT_THEME, LIGHT_MODE, AUTO_MODE } from "@constants/constants";
 	import Icon from "@iconify/svelte";
 	import { getStoredTheme, setTheme } from "@utils/setting-utils";
-	import { onMount } from "svelte";
+	import { onMount, onDestroy } from "svelte";
 
 	import type { LIGHT_DARK_MODE } from "@/types/config.ts";
 
-	const seq: LIGHT_DARK_MODE[] = [LIGHT_MODE, DARK_MODE];
+	const seq: LIGHT_DARK_MODE[] = [LIGHT_MODE, DARK_MODE, AUTO_MODE];  // 支持 3 种模式循环
 	let mode: LIGHT_DARK_MODE = $state(DEFAULT_THEME);
 	let isChanging = false;
 
+	let darkModePreference: MediaQueryList | undefined;
+
+	// 系统偏好变化时，如果当前是 AUTO 模式就自动更新
+	function handleSystemThemeChange() {
+		if (mode === AUTO_MODE) {
+			setTheme(AUTO_MODE);
+		}
+	}
+
 	onMount(() => {
 		mode = getStoredTheme();
+		// 关键：首次加载时立即应用（保证默认 AUTO 生效）
+		setTheme(mode);
+
+		darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+		darkModePreference.addEventListener("change", handleSystemThemeChange);
+	});
+
+	onDestroy(() => {
+		if (darkModePreference) {
+			darkModePreference.removeEventListener("change", handleSystemThemeChange);
+		}
 	});
 
 	function switchScheme(newMode: LIGHT_DARK_MODE) {
-		// 防止连续快速点击
-		if (isChanging) {
-			return;
-		}
-
+		if (isChanging) return;
 		isChanging = true;
 		mode = newMode;
 		setTheme(newMode);
-
-		// 50ms 后重置状态，防止过快切换
-		setTimeout(() => {
-			isChanging = false;
-		}, 50);
+		setTimeout(() => { isChanging = false; }, 50);
 	}
 
 	function toggleScheme() {
-		if (isChanging) {
-			return;
-		}
-
+		if (isChanging) return;
 		let i = 0;
 		for (; i < seq.length; i++) {
-			if (seq[i] === mode) {
-				break;
-			}
+			if (seq[i] === mode) break;
 		}
 		switchScheme(seq[(i + 1) % seq.length]);
 	}
 
-	// 添加 Swup 钩子监听，确保在页面切换后同步主题状态
+	// Swup 兼容部分保持不变
 	if (typeof window !== "undefined") {
-		// 监听 Swup 的内容替换事件
 		const handleContentReplace = () => {
-			// 使用 requestAnimationFrame 确保在下一帧更新状态，避免渲染冲突
 			requestAnimationFrame(() => {
 				const newMode = getStoredTheme();
 				if (mode !== newMode) {
@@ -57,24 +62,16 @@
 			});
 		};
 
-		// 检查 Swup 是否已经加载
 		if ((window as any).swup && (window as any).swup.hooks) {
-			(window as any).swup.hooks.on(
-				"content:replace",
-				handleContentReplace,
-			);
+			(window as any).swup.hooks.on("content:replace", handleContentReplace);
 		} else {
 			document.addEventListener("swup:enable", () => {
 				if ((window as any).swup && (window as any).swup.hooks) {
-					(window as any).swup.hooks.on(
-						"content:replace",
-						handleContentReplace,
-					);
+					(window as any).swup.hooks.on("content:replace", handleContentReplace);
 				}
 			});
 		}
 
-		// 页面加载完成后也同步一次状态
 		document.addEventListener("DOMContentLoaded", () => {
 			requestAnimationFrame(() => {
 				const newMode = getStoredTheme();
@@ -112,6 +109,14 @@
 			icon="material-symbols:dark-mode-outline-rounded"
 			class="text-[1.25rem]"
 		></Icon>
+	</div>
+	<div
+		class="absolute transition-all duration-300 ease-in-out"
+	    class:opacity-0={mode !== AUTO_MODE}
+	>
+		<Icon
+			icon="material-symbols:radio-button-partial-outline"
+			class="text-[1.25rem]" />
 	</div>
 </button>
 
