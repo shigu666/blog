@@ -99,7 +99,7 @@ export const siteConfig: SiteConfig = {
 		allowSwitch: true,
 		// 文章列表页分类导航条配置
 		categoryBar: {
-			enable: true, // 是否在文章列表页显示分类导航条
+			enable: false, // 是否在文章列表页显示分类导航条
 		},
 	},
 
