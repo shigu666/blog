@@ -36,6 +36,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://blog.yanx.us",
 		tags: ["博客", "好友"],
 	},
+	{
+		id: 4,
+		title: "时泠的幻想书屋",
+		imgurl: "https://leave-time.me/assets/avatar/avatar.webp",
+		desc: "",
+		siteurl: "https://leave-time.me",
+		tags: ["博客", "好友"],
+	},
 
 	// {
 	// 	id: 1,
