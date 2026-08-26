@@ -39,9 +39,9 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 4,
 		title: "时泠的幻想书屋",
-		imgurl: "https://leave-time.me/assets/avatar/avatar.webp",
-		desc: "",
-		siteurl: "https://leave-time.me",
+		imgurl: "https://leave-time.site/upload/%E5%A4%B4%E5%83%8F.webp",
+		desc: "天阔云宽海奏歌。｜只是一些碎碎念。",
+		siteurl: "https://leave-time.site",
 		tags: ["博客", "好友"],
 	},
 
