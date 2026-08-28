@@ -44,6 +44,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://leave-time.site",
 		tags: ["博客", "好友"],
 	},
+	{
+		id: 5,
+		title: "小布のMC版本库",
+		imgurl: "https://files.xbu.hk/d/Onedrive/ico/1.png",
+		desc: "一个免登录不限速的MC基岩版全版本库",
+		siteurl: "https://mcdl.xbu.hk",
+		tags: ["资源站", "好友"],
+	},
 
 	// {
 	// 	id: 1,
