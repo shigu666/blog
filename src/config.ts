@@ -457,8 +457,8 @@ export const profileConfig: ProfileConfig = {
 
 export const licenseConfig: LicenseConfig = {
 	enable: true,
-	name: "署名—非商业性使用—相同方式共享 可撤销可追溯许可协议（版本1.1）",
-	url: "https://blog.shigu.cc/license/",
+	name: "CC BY-NC-SA 4.0（署名—非商业性使用—相同方式共享 4.0 协议国际版）",
+	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-hans",
 };
 
 // Permalink 固定链接配置
