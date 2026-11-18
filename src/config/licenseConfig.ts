@@ -6,6 +6,6 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  */
 export const licenseConfig: LicenseConfig = withUserConfig("license", {
 	enable: true,
-	name: "CC BY-NC-SA 4.0",
-	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+	name: "CC BY-NC-SA 4.0（署名—非商业性使用—相同方式共享 4.0 协议国际版）",
+	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-hans",
 });

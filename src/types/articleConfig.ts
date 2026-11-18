@@ -1,5 +1,7 @@
 /** 文章详情页配置。 */
 export interface ArticleConfig {
+	/** 是否在文章正文区域渲染封面（false 时封面仍可用于 banner / OG / 分享）。 */
+	showCoverInContent: boolean;
 	lastUpdated: {
 		/** 是否显示文章最后更新提示。 */
 		enable: boolean;

@@ -4,6 +4,8 @@ enum I18nKey {
 	notFoundTitle = "notFoundTitle",
 	notFoundDescription = "notFoundDescription",
 	about = "about",
+	/** 自定义漫展返图页标题 */
+	aniexp = "aniexp",
 	archive = "archive",
 	/** 归档分组切换（Tabs）：tablist 无障碍名称 */
 	archiveGroup = "archiveGroup",

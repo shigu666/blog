@@ -40,7 +40,7 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  */
 export const animeConfig: AnimeConfig = withUserConfig("anime", {
 	/** 是否启用番剧页；false 时导航入口同步隐藏，访问 /anime/ 跳转 404 */
-	enable: true,
+	enable: false,
 	title: "$t:anime",
 	description: "$t:animeBanner",
 	/** 页面每页条数（正整数），默认 12；省略或无效值回退 12。 */

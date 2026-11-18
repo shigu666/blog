@@ -20,6 +20,9 @@ import Search from "./Search.svelte";
 const className = Astro.props.class;
 const links = resolveNavBarLinks(navBarConfig.links);
 const currentPageKey = resolvePageKey(Astro.url);
+const showDisplaySettings = Object.values(
+	siteConfig.displaySettings ?? {},
+).some(Boolean);
 
 function hrefFor(path?: string) {
 	return path ? url(path) : undefined;
@@ -48,7 +51,16 @@ function isActive(link: (typeof links)[number]): boolean {
 			href={url("/")}
 			class="group flex h-10 items-center gap-2 px-2 text-[var(--on-surface)] transition whitespace-nowrap"
 		>
-			<span class="h-5 w-1 rounded-full bg-[var(--primary)] transition-all group-hover:h-7"></span>
+			{siteConfig.brandIcon ? (
+				<img
+					src={url(siteConfig.brandIcon)}
+					alt=""
+					class="h-8 w-8 rounded-full object-contain"
+					loading="eager"
+				/>
+			) : (
+				<span class="h-5 w-1 rounded-full bg-[var(--primary)] transition-all group-hover:h-7"></span>
+			)}
 			<span class="text-lg font-bold group-hover:text-[var(--primary)]">{siteConfig.title}</span>
 		</a>
 		<nav class:list={["top-app-bar__nav hidden h-full items-center gap-1 lg:flex", siteConfig.topAppBar.contentAlign === "center" ? "lg:absolute lg:left-1/2 lg:-translate-x-1/2" : "ml-4"]} aria-label={i18n(I18nKey.mainNavigation)}>
@@ -88,7 +100,7 @@ function isActive(link: (typeof links)[number]): boolean {
 		</nav>
 		<div class="flex-1"></div>
 		<Search client:only="svelte"></Search>
-		{!siteConfig.themeColor.fixed && (
+		{showDisplaySettings && (
 			<IconButton id="display-settings-switch" label={i18n(I18nKey.displaySettings)} class="shrink-0">
 				<Icon icon="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
 			</IconButton>

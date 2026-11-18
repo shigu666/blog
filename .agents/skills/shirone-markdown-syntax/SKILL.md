@@ -57,7 +57,7 @@ Supported metadata is `@name`, `@type`, `@default`, `@required`, `@optional`, `@
 
 Use four-colon fences for `field-group` when nesting three-colon `field` blocks. A single `field` can also be used without a group. Unknown or malformed `@tags` are preserved as ordinary description text instead of being discarded. Rendering is SSR-only: the cards add no JavaScript or network requests.
 
-Reference implementation and copyable example: `src/plugins/markdown/manifest.json` and `src/content/posts/markdown-fields.md`.
+Reference implementation and copyable example: `src/plugins/markdown/manifest.json` and `docs/markdown-extensions.md`.
 
 ## Bilibili 视频
 
@@ -91,4 +91,4 @@ Reference implementation and copyable example: `src/plugins/markdown/manifest.js
 
 - `src/plugins/markdown/manifest.json` — 每种语法的 forms/attributes/示例/运行时成本(单一真源)
 - `docs/markdown-syntax-manifest.md` — 清单字段与状态含义(stable/legacy/deprecated)
-- `src/content/posts/` — 上述演示文章,均含可复制示例
+- `docs/markdown-extensions.md` — 上述语法的说明文档

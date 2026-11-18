@@ -1,9 +1,12 @@
 ---
 import FriendSection from "@components/organisms/FriendSection.svelte";
+import CommentSection from "@components/organisms/comment/CommentSection.astro";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { resolveI18nText } from "@utils/i18n-utils";
 import { friendsConfig } from "@/config/friendsConfig";
+import { commentConfig, resolveCommentOptions } from "@/config/commentConfig";
+import { siteConfig } from "@/config/siteConfig";
 import { getFriendsList } from "../data/friends";
 
 if (!friendsConfig.enable) {
@@ -15,14 +18,24 @@ const pageDescription = resolveI18nText(
 	friendsConfig.description,
 	I18nKey.friendsBanner,
 );
+const commentEnabled = Boolean(resolveCommentOptions(commentConfig));
 ---
 
-<MainGridLayout title={pageTitle} description={pageDescription} page="friends">
+<MainGridLayout title={pageTitle} description={pageDescription} page="friends" hasComments={commentEnabled}>
 	<FriendSection
 		friends={getFriendsList()}
 		title={pageTitle}
 		subtitle={pageDescription}
 		pageSize={friendsConfig.pageSize}
 		client:visible
+	/>
+	<CommentSection
+		context={{
+			key: "page:friends",
+			path: "/friends/",
+			title: pageTitle,
+			language: siteConfig.lang,
+		}}
+		class="onload-animation"
 	/>
 </MainGridLayout>

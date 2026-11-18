@@ -18,29 +18,24 @@ export const timelineConfig: TimelineConfig = withUserConfig("timeline", {
 	description: "$t:timelineBanner",
 	categories: [
 		{
-			key: "milestone",
-			label: "Milestones",
-			icon: "material-symbols:flag-rounded",
-		},
-		{
-			key: "project",
-			label: "Projects",
-			icon: "material-symbols:code-rounded",
-		},
-		{
-			key: "career",
-			label: "Career",
-			icon: "material-symbols:work-rounded",
-		},
-		{
 			key: "education",
-			label: "Education",
+			label: "教育经历",
 			icon: "material-symbols:school-rounded",
 		},
 		{
-			key: "life",
-			label: "Life",
-			icon: "material-symbols:favorite-rounded",
+			key: "work",
+			label: "工作经历",
+			icon: "material-symbols:work-rounded",
+		},
+		{
+			key: "project",
+			label: "项目",
+			icon: "material-symbols:code-rounded",
+		},
+		{
+			key: "achievement",
+			label: "成就",
+			icon: "material-symbols:emoji-events",
 		},
 	],
 	order: "desc",

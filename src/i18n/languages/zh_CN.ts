@@ -4,6 +4,7 @@ import type { Translation } from "../translation.ts";
 export const zh_CN: Translation = {
 	[Key.home]: "主页",
 	[Key.about]: "关于",
+	[Key.aniexp]: "漫展返图",
 	[Key.archive]: "归档",
 	[Key.archiveGroup]: "归档分组",
 	[Key.archiveGroupYear]: "按年份",
@@ -282,7 +283,7 @@ export const zh_CN: Translation = {
 	[Key.publishedAt]: "发布于",
 	[Key.lastUpdatedNotice]: "最后更新于 {date}，距今已过 {days} 天",
 	[Key.lastUpdatedWarning]: "部分内容可能已过时",
-	[Key.license]: "许可协议",
+	[Key.license]: "内容许可协议",
 	[Key.reprintSource]: "转载自",
 	[Key.continueReading]: "继续阅读",
 	[Key.relatedReading]: "沿着主题读",

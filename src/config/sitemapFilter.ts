@@ -34,6 +34,10 @@ export function getDisabledPages(): string[] {
  * 排除被关闭页面（例如 /skills/, /skills/index.html 等）以及 404 跳转存根。
  */
 export function isSitemapPageAllowed(pageUrl: string): boolean {
+	// 旧站 /aniexp/ 为自定义返图页，通过 public/_headers 标记 noindex 且不进入 sitemap。
+	if (pageUrl.endsWith("/aniexp/") || pageUrl.endsWith("/aniexp")) {
+		return false;
+	}
 	const disabled = getDisabledPages();
 	for (const p of disabled) {
 		if (

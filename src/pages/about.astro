@@ -2,11 +2,15 @@
 import { getEntry, render } from "astro:content";
 import Card from "@components/atoms/display/Card.svelte";
 import Markdown from "@components/content/Markdown.astro";
+import CommentSection from "@components/organisms/comment/CommentSection.astro";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { resolveI18nText } from "@utils/i18n-utils";
 import { getMarkdownStylesheetAssets } from "@utils/markdown-assets";
 import { aboutConfig } from "@/config/aboutConfig";
+import { commentConfig } from "@/config/commentConfig";
+import { siteConfig } from "@/config/siteConfig";
+import { resolveCommentOptions } from "@/config/commentConfig";
 
 if (!aboutConfig.enable) {
 	return Astro.redirect("/404/");
@@ -25,8 +29,9 @@ const { Content, remarkPluginFrontmatter } = await render(aboutPost);
 const markdownStylesheetAssets = await getMarkdownStylesheetAssets(
 	remarkPluginFrontmatter.markdownSyntaxes,
 );
+const commentEnabled = Boolean(resolveCommentOptions(commentConfig));
 ---
-<MainGridLayout title={pageTitle} description={pageDescription} page="about">
+<MainGridLayout title={pageTitle} description={pageDescription} page="about" hasComments={commentEnabled}>
     {markdownStylesheetAssets.map(({ pack, css }) => <style is:inline slot="head" data-swup-optional={pack} set:html={css}></style>)}
     <div class="flex w-full rounded-[var(--shape-corner-l)] overflow-hidden relative min-h-32">
         <Card color="var(--card-bg)" radius="l" class="z-10 p-6 lg:p-8 relative w-full">
@@ -35,4 +40,13 @@ const markdownStylesheetAssets = await getMarkdownStylesheetAssets(
             </Markdown>
         </Card>
     </div>
+    <CommentSection
+        context={{
+            key: "page:about",
+            path: "/about/",
+            title: pageTitle,
+            language: siteConfig.lang,
+        }}
+        class="onload-animation"
+    />
 </MainGridLayout>

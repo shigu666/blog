@@ -262,6 +262,16 @@ const initialMobileBanner = page === "home";
 		</div>
 	</div>
 	{siteConfig.banner.waves.enable && <BannerWaves />}
+	{siteConfig.banner.credit?.enable && siteConfig.banner.credit.text && (
+		<a
+			class="banner-stage__credit"
+			href={siteConfig.banner.credit.url || undefined}
+			target={siteConfig.banner.credit.url ? "_blank" : undefined}
+			rel={siteConfig.banner.credit.url ? "noopener noreferrer" : undefined}
+		>
+			{siteConfig.banner.credit.text}
+		</a>
+	)}
 </section>
 
 <script>
@@ -1051,6 +1061,21 @@ const initialMobileBanner = page === "home";
 			z-index: 1
 			background: unquote("rgb(0 0 0 / calc(var(--banner-dim-opacity) * 0.55))")
 			pointer-events: none
+
+		.banner-stage__credit
+			position: absolute
+			right: var(--m3e-space-4)
+			bottom: var(--m3e-space-3)
+			z-index: 3
+			color: rgba(255, 255, 255, 0.72)
+			font: var(--m3e-type-label-small)
+			text-decoration: none
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5)
+			pointer-events: auto
+
+			&:hover
+				color: white
+				text-decoration: underline
 
 		:global(html.dark) .banner-stage__scrim
 			background: unquote("rgb(0 0 0 / var(--banner-dim-opacity))")

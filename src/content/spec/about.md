@@ -1,26 +1,24 @@
-# About Shirone
+这里是时孤，西伯利亚平原狼（不是西伯利亚大尾巴狼！）  
+平时会玩光遇、⭐趴、喵赛克、旋转古神、节奏医生，偶尔打臀，欢迎交流打歌，乌蒙吃补药拉我去打舞萌  
+会搞家里云（Proxmox VE），系统一般用Debian（Ubuntu坑死我了），准男娘，不会用Arch不是邪教。  
 
-Welcome to the demo site of **Shirone** (白音) — an expressive, anime-inspired blog theme built on the **Material 3 Expressive (M3E)** design system.
+---
 
-::github{repo="LyraVoid/Shirone"}
+# 关于友链  
 
-## ✦ Design & Philosophy
+## 我  
+ID : `时孤`  
+头像 : `https://blog.shigu.cc/images/avatar.png`  
+URL : `https://blog.shigu.cc`  
+描述：`兴趣使然的工科生`  
 
-Shirone aims to combine the warmth of expressive anime aesthetics with the rigor of modern web engineering:
+## 友链留言信息  
+ID : `string`  
+头像 : `URL`  
+URL : `URL`  
+描述：`string`  
 
-- **Dynamic Chromatic Spell**: Full dynamic HCT palette generation responding seamlessly to light/dark modes and user preferences with zero layout shifts.
-- **Seamless Shell Navigation**: Persistent application shell driven by Swup for continuous music playback, smooth page transitions, and preserved state.
-- **Rich Story Grimoire**: Markdown and MDX authoring with KaTeX math, Mermaid diagrams, interactive admonitions, expressive code blocks, and adaptive image galleries.
-- **Zero Extra Burden**: Optional integrations (comments, analytics, music widgets) load dynamically on demand — zero DOM footprint and zero bundle overhead when disabled.
+---
 
-## ✦ Tech Stack
-
-- **Framework**: [Astro 7](https://astro.build/) & [Svelte 5](https://svelte.dev/) (Runes-driven islands)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Stylus](https://stylus-lang.com/)
-- **Design Standard**: [Material 3 Expressive](https://m3.material.io/)
-- **Typography**: Outfit & Yozai (悠哉圆体) with automated build-time subsetting
-- **Search Engine**: [Pagefind](https://pagefind.app/) offline full-text search
-
-## ✦ Credits
-
-- **Font**: [Yozai Font (悠哉字体)](https://github.com/lxgw/yozai-font) by [lxgw](https://github.com/lxgw)
+# 本站源码
+::github{repo="shigu666/blog"}  

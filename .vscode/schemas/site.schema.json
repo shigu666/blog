@@ -21,6 +21,15 @@
     "subtitle": {
       "type": "string"
     },
+    "brandIcon": {
+      "anyOf": [
+        {},
+        {
+          "type": "string"
+        }
+      ],
+      "description": "顶栏站点标记图（本地 public 路径或远程 URL）。"
+    },
     "ogImage": {
       "anyOf": [
         {},
@@ -624,6 +633,32 @@
             }
           },
           "additionalProperties": false
+        },
+        "credit": {
+          "anyOf": [
+            {},
+            {
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "type": "boolean"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "url": {
+                  "anyOf": [
+                    {},
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "横幅图片来源署名（可选）。"
         }
       },
       "additionalProperties": false

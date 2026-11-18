@@ -73,6 +73,12 @@ export type BannerConfig = {
 	waves: {
 		enable: boolean;
 	};
+	/** 横幅图片来源署名（可选）。 */
+	credit?: {
+		enable: boolean;
+		text: string;
+		url?: string;
+	};
 };
 
 export type SiteConfig = {
@@ -80,6 +86,8 @@ export type SiteConfig = {
 	base?: string;
 	title: string;
 	subtitle: string;
+	/** 顶栏站点标记图（本地 public 路径或远程 URL）。 */
+	brandIcon?: string;
 	/** 默认社交媒体分享预览图（og:image / twitter:image），支持本地相对路径或远程绝对链接。未配置时自动回退为第一张桌面版横幅壁纸。 */
 	ogImage?: string;
 	topAppBar: {

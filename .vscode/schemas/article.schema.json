@@ -4,6 +4,10 @@
   "description": "Shirone article config schema generated from @/types/articleConfig.ArticleConfig",
   "type": "object",
   "properties": {
+    "showCoverInContent": {
+      "type": "boolean",
+      "description": "是否在文章正文区域渲染封面（false 时封面仍可用于 banner / OG / 分享）。"
+    },
     "lastUpdated": {
       "type": "object",
       "properties": {

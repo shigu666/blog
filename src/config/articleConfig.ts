@@ -5,9 +5,11 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * 文章详情页配置。
  */
 export const articleConfig: ArticleConfig = withUserConfig("article", {
+	// 旧站 showCoverInContent: false，封面只用于横幅与元信息。
+	showCoverInContent: false,
 	lastUpdated: {
-		// 关闭后不渲染最后更新提示。
-		enable: true,
+		// 旧站 showLastModified: false。
+		enable: false,
 		// 按 UTC 日历日计算；达到该天数当天开始显示，0 表示立即显示。
 		minimumAgeDays: 90,
 	},
