@@ -1,5 +1,5 @@
 # 内容许可声明  
-本博客项目为[LyraVoid/Mizuki](https://github.com/LyraVoid/Mizuki)项目，使用[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)协议，但是博客中的所有内容、文章等**不在Apache 2.0协议下**，引用的文章、图片等的版权、著作权等相关权利归原作者所有。通常情况下本站原创内容声明如下：  
+本博客项目为[LyraVoid/Shirone](https://github.com/LyraVoid/Shirone)项目，使用[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)协议，但是博客中的所有内容、文章等**不在Apache 2.0协议下**，引用的文章、图片等的版权、著作权等相关权利归原作者所有。通常情况下本站原创内容声明如下：  
 
 本博客所有内容在没有额外声明时均遵守[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)（[署名—非商业性使用—相同方式共享 4.0 协议国际版]([https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-hans))）  
 
